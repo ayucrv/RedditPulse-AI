@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://acyy49-redditpulse-ai.hf.space"
 
 export async function analyzeDiscussion(discussion: string) {
   const response = await fetch(`${API_URL}/analyze`, {
