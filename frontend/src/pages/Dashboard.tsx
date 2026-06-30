@@ -18,31 +18,27 @@ import { analyzeDiscussion } from "../services/api";
 
 export default function Dashboard() {
   const [analysis, setAnalysis] = useState<any>(null);
-  const [discussion, setDiscussion] = useState("");
+  
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleAnalyze = async (text: string) => {
-    if (!text.trim()) return;
+  if (!text.trim()) return;
 
-    setDiscussion(text);
-    setLoading(true);
-    setError("");
+  setLoading(true);
+  setError("");
 
-    try {
-      const result = await analyzeDiscussion(text);
-
-      console.log(result);
-
-      setAnalysis(result);
-    } catch (err) {
-      console.error(err);
-      setError("Unable to analyze discussion.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  try {
+    const result = await analyzeDiscussion(text);
+    setAnalysis(result);
+  } catch (err) {
+    console.error(err);
+    setError("Unable to analyze discussion.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <main className="min-h-screen bg-[#0A0A0A] text-white">
@@ -176,7 +172,6 @@ export default function Dashboard() {
             />
 
             <ChatBox
-              discussion={discussion}
             />
 
           </>
