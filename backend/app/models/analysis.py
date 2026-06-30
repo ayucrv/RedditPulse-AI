@@ -21,11 +21,11 @@ class Sentiment(BaseModel):
 
 
 class Emotion(BaseModel):
-    supportive: int
-    harsh: int
-    hopeful: int
-    sarcastic: int
-    frustrated: int
+    supportive: float
+    harsh: float
+    hopeful: float
+    sarcastic: float
+    frustrated: float
 
 
 class Advice(BaseModel):
